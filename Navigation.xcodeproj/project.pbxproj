@@ -19,6 +19,7 @@
 		CB0508582677D8B9007D2BAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0508572677D8B9007D2BAB /* LoginViewController.swift */; };
 		CB75048626664ABE00D39751 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB75048526664ABE00D39751 /* ProfileHeaderView.swift */; };
 		CB75048826664AFA00D39751 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB75048726664AFA00D39751 /* ProfileViewController.swift */; };
+		CB8396152692230F002C1085 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8396142692230F002C1085 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		CB0508572677D8B9007D2BAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		CB75048526664ABE00D39751 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		CB75048726664AFA00D39751 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		CB8396142692230F002C1085 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		CB75048426664A8E00D39751 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CB8396142692230F002C1085 /* TableViewCell.swift */,
 				CB0508572677D8B9007D2BAB /* LoginViewController.swift */,
 				CB75048526664ABE00D39751 /* ProfileHeaderView.swift */,
 				CB75048726664AFA00D39751 /* ProfileViewController.swift */,
@@ -169,6 +172,7 @@
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				060782CA250CEE7200A87020 /* Post.swift in Sources */,
+				CB8396152692230F002C1085 /* TableViewCell.swift in Sources */,
 				CB75048626664ABE00D39751 /* ProfileHeaderView.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				CB75048826664AFA00D39751 /* ProfileViewController.swift in Sources */,

@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileHeaderView: UIView {
+
     
     @IBOutlet weak var avatarImageView: UIImageView!
     
