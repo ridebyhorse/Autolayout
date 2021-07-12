@@ -9,33 +9,58 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
+
+    private let tableView = UITableView(frame: .zero, style: .grouped)
     
-    private(set) lazy var button: UIButton = {
-        let button = UIButton()
-        button.setTitle("Bottom button", for: .normal)
-        return button
-    }()
+    let cellID = "CellID"
     
     override func viewDidLoad() {
-    
+        
         super.viewDidLoad()
         
-        self.view.addSubview(button)
-        button.backgroundColor = .orange
-        button.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalToConstant: 200),
-            button.heightAnchor.constraint(equalToConstant: 50),
-            button.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 0),
-            button.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: 0),
-            button.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+            tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 250),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
         
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: cellID)
+       
     }
 
 }
 
+extension ProfileViewController: UITableViewDelegate {
+    
+}
 
-
-
+extension ProfileViewController: UITableViewDataSource {
+    
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+  
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return publications.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: FeedTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! FeedTableViewCell
+        
+        cell.publication = publications[indexPath.row]
+        
+        return cell
+    }
+    
+    
+ 
+}
