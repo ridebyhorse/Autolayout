@@ -1,107 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VVa-ty-c3K">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VVa-ty-c3K">
     <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="bRX-aC-Cpi">
-            <objects>
-                <viewController storyboardIdentifier="profileVC" id="Ca1-kw-dKJ" customClass="ProfileViewController" customModule="Navigation" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="z6I-Co-0n3">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECL-n2-LCB" customClass="ProfileHeaderView" customModule="Navigation" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="44" width="414" height="220"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_1" translatesAutoresizingMaskIntoConstraints="NO" id="ztc-L3-bsc" userLabel="Avatar Image View">
-                                        <rect key="frame" x="16" y="16" width="110" height="110"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="110" id="Yeg-Nc-haB"/>
-                                            <constraint firstAttribute="width" constant="110" id="cuq-D1-lvr"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lucky Monkey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fs-Si-eea" userLabel="Full Name Label">
-                                        <rect key="frame" x="142" y="27" width="256" height="22"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Can't stop coding..." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suw-4N-8Yh" userLabel="Status Label">
-                                        <rect key="frame" x="142" y="60" width="256" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzW-cD-OHP" userLabel="Set Status Button">
-                                        <rect key="frame" x="16" y="142" width="382" height="50"/>
-                                        <color key="backgroundColor" systemColor="systemBlueColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="3NY-20-Ypn"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
-                                        <state key="normal" title="Set status">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Update your status..." minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="baw-K3-285" userLabel="Status Text Field">
-                                        <rect key="frame" x="142" y="86" width="256" height="40"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="NOD-yl-bLZ"/>
-                                        </constraints>
-                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="Suw-4N-8Yh" firstAttribute="leading" secondItem="ECL-n2-LCB" secondAttribute="leading" constant="142" id="2jK-06-zum"/>
-                                    <constraint firstItem="ztc-L3-bsc" firstAttribute="top" secondItem="ECL-n2-LCB" secondAttribute="top" constant="16" id="CKj-Ab-Idl"/>
-                                    <constraint firstAttribute="trailing" secondItem="Suw-4N-8Yh" secondAttribute="trailing" constant="16" id="EI3-UN-Vva"/>
-                                    <constraint firstAttribute="height" constant="220" id="LK9-TM-Fdy"/>
-                                    <constraint firstItem="lzW-cD-OHP" firstAttribute="leading" secondItem="ECL-n2-LCB" secondAttribute="leading" constant="16" id="Vwc-HG-ceg"/>
-                                    <constraint firstItem="Suw-4N-8Yh" firstAttribute="top" secondItem="ECL-n2-LCB" secondAttribute="top" constant="60" id="WbU-gS-Loc"/>
-                                    <constraint firstItem="1fs-Si-eea" firstAttribute="top" secondItem="ECL-n2-LCB" secondAttribute="top" constant="27" id="Z6x-dd-Gc2"/>
-                                    <constraint firstItem="lzW-cD-OHP" firstAttribute="top" secondItem="ECL-n2-LCB" secondAttribute="top" constant="142" id="b1f-Fb-NZU"/>
-                                    <constraint firstItem="ztc-L3-bsc" firstAttribute="leading" secondItem="ECL-n2-LCB" secondAttribute="leading" constant="16" id="bfA-mH-udd"/>
-                                    <constraint firstAttribute="trailing" secondItem="baw-K3-285" secondAttribute="trailing" constant="16" id="eDd-hV-fe4"/>
-                                    <constraint firstItem="baw-K3-285" firstAttribute="leading" secondItem="ECL-n2-LCB" secondAttribute="leading" constant="142" id="g2U-1t-NTN"/>
-                                    <constraint firstAttribute="trailing" secondItem="lzW-cD-OHP" secondAttribute="trailing" constant="16" id="kcC-F1-GlJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="1fs-Si-eea" secondAttribute="trailing" constant="16" id="pnp-LH-ho0"/>
-                                    <constraint firstItem="baw-K3-285" firstAttribute="top" secondItem="ECL-n2-LCB" secondAttribute="top" constant="86" id="qlD-48-1HZ"/>
-                                    <constraint firstItem="1fs-Si-eea" firstAttribute="leading" secondItem="ECL-n2-LCB" secondAttribute="leading" constant="142" id="tbh-KQ-hgW"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="avatarImageView" destination="ztc-L3-bsc" id="cz7-Cp-7eP"/>
-                                    <outlet property="fullNameLabel" destination="1fs-Si-eea" id="L2O-xO-uaT"/>
-                                    <outlet property="setStatusButton" destination="lzW-cD-OHP" id="8wF-tP-62X"/>
-                                    <outlet property="statusLabel" destination="Suw-4N-8Yh" id="GB6-Xj-gtp"/>
-                                    <outlet property="statusTextField" destination="baw-K3-285" id="QwW-dr-rH4"/>
-                                </connections>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="FCL-IZ-fe8"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="ECL-n2-LCB" firstAttribute="top" secondItem="FCL-IZ-fe8" secondAttribute="top" id="91u-hT-8ye"/>
-                            <constraint firstItem="FCL-IZ-fe8" firstAttribute="trailing" secondItem="ECL-n2-LCB" secondAttribute="trailing" id="GHi-qJ-Cam"/>
-                            <constraint firstItem="ECL-n2-LCB" firstAttribute="top" secondItem="FCL-IZ-fe8" secondAttribute="top" id="ahL-iT-Mma"/>
-                            <constraint firstItem="ECL-n2-LCB" firstAttribute="leading" secondItem="FCL-IZ-fe8" secondAttribute="leading" id="jvX-5n-HHg"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Profile" id="TPi-FS-zh0"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZwS-K6-ZGq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1393" y="197"/>
-        </scene>
         <!--Feed-->
         <scene sceneID="pR1-4r-6ob">
             <objects>
@@ -268,14 +175,10 @@
         <segue reference="vq7-H6-lkd"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="avatar_1" width="320" height="226"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

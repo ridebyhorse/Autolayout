@@ -3,7 +3,7 @@
 //  Navigation
 //
 //  Created by Мария Можаева on 14.06.2021.
-//  Copyright © 2021 Artem Novichkov. All rights reserved.
+//  Copyright © 2020 Artem Novichkov. All rights reserved.
 //
 
 import UIKit
@@ -135,8 +135,8 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -157,8 +157,8 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapLogInButton() {
-        let profileVC = storyboard?.instantiateViewController(identifier: "profileVC")
-        navigationController?.pushViewController(profileVC!, animated: true)
+            let newController = ProfileViewController()
+            self.navigationController?.pushViewController(newController, animated: true)
     }
     
 }
