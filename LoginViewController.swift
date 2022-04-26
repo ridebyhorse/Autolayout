@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
         
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.isHidden = true
+        
         
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,7 +85,7 @@ class LoginViewController: UIViewController {
             logInButton.trailingAnchor.constraint(equalTo: formField.trailingAnchor),
             logInButton.heightAnchor.constraint(equalToConstant: 50)
         ]
-    
+        
         
         NSLayoutConstraint.activate(constraints)
         
@@ -130,6 +130,8 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.hidesBarsOnTap = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
