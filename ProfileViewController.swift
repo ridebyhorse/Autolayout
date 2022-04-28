@@ -29,6 +29,8 @@ class ProfileViewController: UIViewController {
 #endif
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
 
         NSLayoutConstraint.activate([
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -43,6 +45,8 @@ class ProfileViewController: UIViewController {
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: publicationCellID)
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: photosCellID)
         tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
+        
+        applyFilters()
        
     }
     
