@@ -13,15 +13,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
     
     private var statusText: String?
     
-    private let profileView: UIView = {
-        let profileView = UIView()
-        profileView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return profileView
-        
-    }()
-    
-    private let userName: UILabel = {
+    var userName: UILabel = {
         let userName = UILabel()
         userName.font = .systemFont(ofSize: 18, weight: .bold)
         userName.text = "Lucky Monkey"
@@ -44,10 +36,10 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return changedStatus
     }()
     
-    private let status: UILabel = {
+    var status: UILabel = {
         let status = UILabel()
         status.font = .systemFont(ofSize: 14)
-        status.text = "Can't stop coding..."
+        status.text = "Can't stop coding"
         status.textColor = .gray
         status.textAlignment = .left
         status.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +64,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         return setStatusButton
     }()
     
-    private let avatarImage: UIImageView = {
+    var avatarImage: UIImageView = {
         let avatarImage = UIImageView()
         avatarImage.contentMode = .scaleAspectFill
         avatarImage.image = UIImage.init(named: "avatar_1")

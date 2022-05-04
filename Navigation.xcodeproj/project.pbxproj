@@ -31,6 +31,9 @@
 		CB8C7BE72819445300C5C246 /* StorageServices.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CB8C7BDE2819445300C5C246 /* StorageServices.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CB8C7BEB2819447C00C5C246 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060782C9250CEE7200A87020 /* Post.swift */; };
 		CB9A6B7F278F4FBD007F8ADF /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9A6B7E278F4FBD007F8ADF /* ProfileHeaderView.swift */; };
+		CBC2DE53281BFC7800E546C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2DE52281BFC7800E546C4 /* User.swift */; };
+		CBC2DE55281C025600E546C4 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2DE54281C025600E546C4 /* CurrentUserService.swift */; };
+		CBC33DCB28225D0200990300 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC33DCA28225D0200990300 /* TestUserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +89,9 @@
 		CB8C7BE02819445300C5C246 /* StorageServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageServices.h; sourceTree = "<group>"; };
 		CB8C7BE12819445300C5C246 /* StorageServices.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageServices.docc; sourceTree = "<group>"; };
 		CB9A6B7E278F4FBD007F8ADF /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileHeaderView.swift; path = ../../ProfileHeaderView.swift; sourceTree = "<group>"; };
+		CBC2DE52281BFC7800E546C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CBC2DE54281C025600E546C4 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
+		CBC33DCA28225D0200990300 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +168,9 @@
 		CB75048426664A8E00D39751 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CBC33DCA28225D0200990300 /* TestUserService.swift */,
+				CBC2DE54281C025600E546C4 /* CurrentUserService.swift */,
+				CBC2DE52281BFC7800E546C4 /* User.swift */,
 				CB5039AF2818588100E5E077 /* PhotosCollectionViewCell.swift */,
 				CB5039AB2818457F00E5E077 /* PhotosViewController.swift */,
 				CB245C172812F128007B1596 /* PhotosTableViewCell.swift */,
@@ -380,15 +389,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBC33DCB28225D0200990300 /* TestUserService.swift in Sources */,
 				CB0508582677D8B9007D2BAB /* LoginViewController.swift in Sources */,
 				CB5039B02818588100E5E077 /* PhotosCollectionViewCell.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				CB245C182812F128007B1596 /* PhotosTableViewCell.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
+				CBC2DE53281BFC7800E546C4 /* User.swift in Sources */,
 				CB8396152692230F002C1085 /* FeedTableViewCell.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				CB9A6B7F278F4FBD007F8ADF /* ProfileHeaderView.swift in Sources */,
+				CBC2DE55281C025600E546C4 /* CurrentUserService.swift in Sources */,
 				CB5039AC2818457F00E5E077 /* PhotosViewController.swift in Sources */,
 				CB5039AE2818511200E5E077 /* Photos.swift in Sources */,
 				CB75048826664AFA00D39751 /* ProfileViewController.swift in Sources */,
