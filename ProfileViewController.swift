@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StorageServices
 
 class ProfileViewController: UIViewController {
 
@@ -16,13 +17,45 @@ class ProfileViewController: UIViewController {
     
     let photosCellID = "PhotosCellID"
     
+    var user: User
+    
+    
+    init(currentUser: CurrentUserService, inputName: String) {
+        
+        user = currentUser.provideUserData(inputName)
+        
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    init(testUser: TestUserService, inputName: String) {
+        
+        user = testUser.provideUserData(inputName)
+        
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        
+        
         view.addSubview(tableView)
+#if DEBUG
+        tableView.backgroundColor = .white
+#else
+        tableView.backgroundColor = .lightGray
+#endif
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        
+        
 
         NSLayoutConstraint.activate([
             tableView.widthAnchor.constraint(equalTo: view.widthAnchor),
@@ -37,6 +70,8 @@ class ProfileViewController: UIViewController {
         tableView.register(FeedTableViewCell.self, forCellReuseIdentifier: publicationCellID)
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: photosCellID)
         tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
+        
+        applyFilters()
        
     }
     
@@ -110,6 +145,9 @@ extension ProfileViewController: UITableViewDataSource {
         guard let headerView =
                 tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileHeaderView.self)) as?
                 ProfileHeaderView else{ return nil }
+        headerView.userName.text = user.name
+        headerView.avatarImage.image = user.avatar
+        headerView.status.text = user.status
         
         if section == 0 {
             return headerView

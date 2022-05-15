@@ -7,20 +7,13 @@
 //
 
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UITableViewHeaderFooterView {
     
     private var statusText: String?
     
-    private let profileView: UIView = {
-        let profileView = UIView()
-        profileView.translatesAutoresizingMaskIntoConstraints = false
-        
-        return profileView
-        
-    }()
-    
-    private let userName: UILabel = {
+    var userName: UILabel = {
         let userName = UILabel()
         userName.font = .systemFont(ofSize: 18, weight: .bold)
         userName.text = "Lucky Monkey"
@@ -37,16 +30,16 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         changedStatus.layer.borderColor = UIColor.black.cgColor
         changedStatus.backgroundColor = .white
         changedStatus.layer.cornerRadius = 12
-        changedStatus.addTarget(changedStatus, action: #selector(statusChanged), for: .editingChanged)
+        changedStatus.addTarget(self, action: #selector(statusChanged), for: .editingChanged)
         changedStatus.translatesAutoresizingMaskIntoConstraints = false
         
         return changedStatus
     }()
     
-    private let status: UILabel = {
+    var status: UILabel = {
         let status = UILabel()
         status.font = .systemFont(ofSize: 14)
-        status.text = "Can't stop coding..."
+        status.text = "Can't stop coding"
         status.textColor = .gray
         status.textAlignment = .left
         status.translatesAutoresizingMaskIntoConstraints = false
@@ -65,13 +58,13 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         setStatusButton.backgroundColor = .systemBlue
         setStatusButton.setTitleColor(.white, for: .normal)
         setStatusButton.setTitle("Update status", for: .normal)
-        setStatusButton.addTarget(setStatusButton, action: #selector(buttonPressed), for: .touchUpInside)
+        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         
         return setStatusButton
     }()
     
-    private let avatarImage: UIImageView = {
+    var avatarImage: UIImageView = {
         let avatarImage = UIImageView()
         avatarImage.contentMode = .scaleAspectFill
         avatarImage.image = UIImage.init(named: "avatar_1")
@@ -112,22 +105,32 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         contentView.addSubview(setStatusButton)
         contentView.addSubview(avatarImage)
         
-        NSLayoutConstraint.activate([
-            avatarImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            avatarImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            avatarImage.heightAnchor.constraint(equalToConstant: 100),
-            avatarImage.widthAnchor.constraint(equalToConstant: 100),
-            userName.leadingAnchor.constraint(equalTo: avatarImage.trailingAnchor, constant: 20),
-            userName.topAnchor.constraint(equalTo: avatarImage.topAnchor, constant: 10),
-            status.leadingAnchor.constraint(equalTo: userName.leadingAnchor),
-            status.topAnchor.constraint(equalTo: userName.bottomAnchor, constant: 6),
-            changedStatus.leadingAnchor.constraint(equalTo: status.leadingAnchor),
-            changedStatus.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            changedStatus.bottomAnchor.constraint(equalTo: avatarImage.bottomAnchor),
-            changedStatus.heightAnchor.constraint(equalToConstant: 40),
-            setStatusButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            setStatusButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            setStatusButton.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 20)
-        ])
+        avatarImage.snp.makeConstraints {
+            $0.leading.top.equalTo(contentView).offset(16)
+            $0.height.width.equalTo(100)
+        }
+        
+        userName.snp.makeConstraints {
+            $0.leading.equalTo(avatarImage.snp.trailing).offset(20)
+            $0.top.equalTo(avatarImage).offset(10)
+        }
+        
+        status.snp.makeConstraints {
+            $0.leading.equalTo(userName)
+            $0.top.equalTo(userName.snp.bottom).offset(6)
+        }
+        
+        changedStatus.snp.makeConstraints {
+            $0.leading.equalTo(status)
+            $0.trailing.equalTo(contentView).offset(-16)
+            $0.bottom.equalTo(avatarImage)
+            $0.height.equalTo(40)
+        }
+        
+        setStatusButton.snp.makeConstraints {
+            $0.leading.equalTo(contentView).offset(16)
+            $0.trailing.equalTo(contentView).offset(-16)
+            $0.top.equalTo(avatarImage.snp.bottom).offset(20)
+        }
     }
 }

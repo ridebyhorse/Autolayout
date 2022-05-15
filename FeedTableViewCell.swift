@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StorageServices
 
 class FeedTableViewCell: UITableViewCell {
     
