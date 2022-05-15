@@ -37,7 +37,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         changedStatus.layer.borderColor = UIColor.black.cgColor
         changedStatus.backgroundColor = .white
         changedStatus.layer.cornerRadius = 12
-        changedStatus.addTarget(self, action: #selector(statusChanged), for: .editingChanged)
+        changedStatus.addTarget(changedStatus, action: #selector(statusChanged), for: .editingChanged)
         changedStatus.translatesAutoresizingMaskIntoConstraints = false
         
         return changedStatus
@@ -65,7 +65,7 @@ class ProfileHeaderView: UITableViewHeaderFooterView {
         setStatusButton.backgroundColor = .systemBlue
         setStatusButton.setTitleColor(.white, for: .normal)
         setStatusButton.setTitle("Update status", for: .normal)
-        setStatusButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        setStatusButton.addTarget(setStatusButton, action: #selector(buttonPressed), for: .touchUpInside)
         setStatusButton.translatesAutoresizingMaskIntoConstraints = false
         
         return setStatusButton
