@@ -22,4 +22,3 @@ var photos: [UIImage] = [
     .init(named: "9")!
     
 ]
-
