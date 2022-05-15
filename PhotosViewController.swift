@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class PhotosViewController: UIViewController {
     
     let collectionView: UICollectionView = {

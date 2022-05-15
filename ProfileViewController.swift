@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import StorageServices
 
 class ProfileViewController: UIViewController {
 
@@ -21,6 +22,11 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         view.addSubview(tableView)
+#if DEBUG
+        tableView.backgroundColor = .white
+#else
+        tableView.backgroundColor = .lightGray
+#endif
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
 
