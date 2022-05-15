@@ -159,8 +159,20 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapLogInButton() {
-            let newController = ProfileViewController()
+        let currentUser = CurrentUserService()
+        let testUser = TestUserService()
+        
+        
+#if DEBUG
+        let newController = ProfileViewController(testUser: testUser, inputName: emailOrPhoneTextField.text ?? "")
             self.navigationController?.pushViewController(newController, animated: true)
+#else
+        let newController = ProfileViewController(currentUser: currentUser, inputName: emailOrPhoneTextField.text ?? "")
+            self.navigationController?.pushViewController(newController, animated: true)
+#endif
+        
+        
+        
     }
     
 }

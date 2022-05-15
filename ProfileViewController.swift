@@ -17,9 +17,34 @@ class ProfileViewController: UIViewController {
     
     let photosCellID = "PhotosCellID"
     
+    var user: User
+    
+    
+    init(currentUser: CurrentUserService, inputName: String) {
+        
+        user = currentUser.provideUserData(inputName)
+        
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    init(testUser: TestUserService, inputName: String) {
+        
+        user = testUser.provideUserData(inputName)
+        
+        super.init(nibName: nil, bundle: nil)
+        
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        
         
         view.addSubview(tableView)
 #if DEBUG
@@ -120,6 +145,9 @@ extension ProfileViewController: UITableViewDataSource {
         guard let headerView =
                 tableView.dequeueReusableHeaderFooterView(withIdentifier: String(describing: ProfileHeaderView.self)) as?
                 ProfileHeaderView else{ return nil }
+        headerView.userName.text = user.name
+        headerView.avatarImage.image = user.avatar
+        headerView.status.text = user.status
         
         if section == 0 {
             return headerView
