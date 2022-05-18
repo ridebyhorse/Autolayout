@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LoginViewControllerDelegate: AnyObject {
+    func checkData(inputLogin: String, inputPswd: String) -> Bool
+}
+
 class LoginViewController: UIViewController {
     
     private var loginView = UIView()
@@ -19,11 +23,11 @@ class LoginViewController: UIViewController {
     private var logInButton = UIButton()
     private let scrollView = UIScrollView()
     
+    var delegate: LoginViewControllerDelegate?
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
         
         view.addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -144,8 +148,6 @@ class LoginViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
-    
-    
     @objc fileprivate func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             scrollView.contentInset.bottom = keyboardSize.height
@@ -159,18 +161,26 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapLogInButton() {
-        let currentUser = CurrentUserService()
-        let testUser = TestUserService()
         
+        guard let delegate = delegate else {
+            return
+        }
+
+        if delegate.checkData(inputLogin: emailOrPhoneTextField.text ?? "", inputPswd: passwordTextField.text ?? "") {
+            print("Login and password are correct")
+        } else {
+            print("Invalid login or password")
+        }
         
 #if DEBUG
+        let testUser = TestUserService()
         let newController = ProfileViewController(testUser: testUser, inputName: emailOrPhoneTextField.text ?? "")
-            self.navigationController?.pushViewController(newController, animated: true)
+        self.navigationController?.pushViewController(newController, animated: true)
 #else
+        let currentUser = CurrentUserService()
         let newController = ProfileViewController(currentUser: currentUser, inputName: emailOrPhoneTextField.text ?? "")
-            self.navigationController?.pushViewController(newController, animated: true)
+        self.navigationController?.pushViewController(newController, animated: true)
 #endif
-        
         
         
     }

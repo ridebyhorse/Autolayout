@@ -20,6 +20,9 @@
 		CB0508582677D8B9007D2BAB /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0508572677D8B9007D2BAB /* LoginViewController.swift */; };
 		CB245C182812F128007B1596 /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB245C172812F128007B1596 /* PhotosTableViewCell.swift */; };
 		CB24CA1B281AC80A00EB71F8 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = CB24CA1A281AC80A00EB71F8 /* iOSIntPackage */; };
+		CB4B71C328326D1600F1F810 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B71C228326D1600F1F810 /* Checker.swift */; };
+		CB4B71C528327D9B00F1F810 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B71C428327D9B00F1F810 /* LoginInspector.swift */; };
+		CB4B71C72834F0A200F1F810 /* MyLoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4B71C62834F0A200F1F810 /* MyLoginFactory.swift */; };
 		CB5039AC2818457F00E5E077 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5039AB2818457F00E5E077 /* PhotosViewController.swift */; };
 		CB5039AE2818511200E5E077 /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5039AD2818511200E5E077 /* Photos.swift */; };
 		CB5039B02818588100E5E077 /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5039AF2818588100E5E077 /* PhotosCollectionViewCell.swift */; };
@@ -80,6 +83,9 @@
 		91F572877BD2E6F0F59AE05A /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0508572677D8B9007D2BAB /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		CB245C172812F128007B1596 /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		CB4B71C228326D1600F1F810 /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
+		CB4B71C428327D9B00F1F810 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
+		CB4B71C62834F0A200F1F810 /* MyLoginFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLoginFactory.swift; sourceTree = "<group>"; };
 		CB5039AB2818457F00E5E077 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = SOURCE_ROOT; };
 		CB5039AD2818511200E5E077 /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = SOURCE_ROOT; };
 		CB5039AF2818588100E5E077 /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -168,6 +174,9 @@
 		CB75048426664A8E00D39751 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				CB4B71C62834F0A200F1F810 /* MyLoginFactory.swift */,
+				CB4B71C428327D9B00F1F810 /* LoginInspector.swift */,
+				CB4B71C228326D1600F1F810 /* Checker.swift */,
 				CBC33DCA28225D0200990300 /* TestUserService.swift */,
 				CBC2DE54281C025600E546C4 /* CurrentUserService.swift */,
 				CBC2DE52281BFC7800E546C4 /* User.swift */,
@@ -391,12 +400,15 @@
 			files = (
 				CBC33DCB28225D0200990300 /* TestUserService.swift in Sources */,
 				CB0508582677D8B9007D2BAB /* LoginViewController.swift in Sources */,
+				CB4B71C72834F0A200F1F810 /* MyLoginFactory.swift in Sources */,
 				CB5039B02818588100E5E077 /* PhotosCollectionViewCell.swift in Sources */,
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				CB245C182812F128007B1596 /* PhotosTableViewCell.swift in Sources */,
 				060782C6250CEB0A00A87020 /* InfoViewController.swift in Sources */,
 				CBC2DE53281BFC7800E546C4 /* User.swift in Sources */,
+				CB4B71C328326D1600F1F810 /* Checker.swift in Sources */,
+				CB4B71C528327D9B00F1F810 /* LoginInspector.swift in Sources */,
 				CB8396152692230F002C1085 /* FeedTableViewCell.swift in Sources */,
 				060782B4250CE27700A87020 /* SceneDelegate.swift in Sources */,
 				CB9A6B7F278F4FBD007F8ADF /* ProfileHeaderView.swift in Sources */,
