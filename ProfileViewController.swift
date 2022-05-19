@@ -71,7 +71,7 @@ class ProfileViewController: UIViewController {
         tableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: photosCellID)
         tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
         
-        applyFilters()
+//        applyFilters()
        
     }
     
