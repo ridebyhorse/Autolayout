@@ -33,27 +33,25 @@ public var post3 = PostExample(author: "Lynn Zhang", description: "You see, our 
 
 public var post4 = PostExample(author: "Gabe Some", description: "What Is Post-COVID Fatigue?", image: UIImage(named: "vaccine")!, likes: 327, views: 1408)
 
-public func applyFilters() {
-    
-    let filter = ImageProcessor()
-    
-    filter.processImage(sourceImage: post1.image, filter: .bloom(intensity: 0.4)) { image in
-        post1.image = image!
-    }
-    
-    filter.processImage(sourceImage: post2.image, filter: .monochrome(color: .green, intensity: 0.3)) { image in
-        post2.image = image!
-    }
-    
-    filter.processImage(sourceImage: post3.image, filter: .sepia(intensity: 0.6)) { image in
-        post3.image = image!
-    }
-    
-    filter.processImage(sourceImage: post4.image, filter: .posterize) { image in
-        post4.image = image!
-    }
-}
-
-
+//public func applyFilters() {
+//    
+//    let filter = ImageProcessor()
+//    
+//    filter.processImage(sourceImage: post1.image, filter: .bloom(intensity: 0.4)) { image in
+//        post1.image = image!
+//    }
+//    
+//    filter.processImage(sourceImage: post2.image, filter: .monochrome(color: .green, intensity: 0.3)) { image in
+//        post2.image = image!
+//    }
+//    
+//    filter.processImage(sourceImage: post3.image, filter: .sepia(intensity: 0.6)) { image in
+//        post3.image = image!
+//    }
+//    
+//    filter.processImage(sourceImage: post4.image, filter: .posterize) { image in
+//        post4.image = image!
+//    }
+//}
 
 public let publications: [PostExample] = [post1, post2, post3, post4]

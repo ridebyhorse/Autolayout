@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import iOSIntPackage
 
 protocol UserService {
     func provideUserData(_ userName: String) -> (User)

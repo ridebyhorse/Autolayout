@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import iOSIntPackage
 
-class PhotosViewController: UIViewController {
+class PhotosViewController: UIViewController, ImageLibrarySubscriber {
     
     let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -22,14 +23,36 @@ class PhotosViewController: UIViewController {
         return collectionView
     }()
     
+    let facade = ImagePublisherFacade()
+
+    
+    private(set) var observations: [NSKeyValueObservation] = []
+    
+    var newImages = [UIImage]()
+    
+    func receive(images: [UIImage]) {
+        newImages = images
+        collectionView.reloadData()
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        facade.subscribe(self)
         
         view.backgroundColor = .white
         
         setupViews()
         
+        facade.addImagesWithTimer(time: 1.5, repeat: 20, userImages: photos)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        facade.removeSubscription(for: self)
+        facade.rechargeImageLibrary()
     }
     
     private func setupViews() {
@@ -55,7 +78,7 @@ class PhotosViewController: UIViewController {
 extension PhotosViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return photos.count
+        return newImages.count
     
     }
     
@@ -67,7 +90,8 @@ extension PhotosViewController: UICollectionViewDataSource {
         
         let photoCell = collectionView.dequeueReusableCell(withReuseIdentifier: PhotosCollectionViewCell.identifier, for: indexPath) as! PhotosCollectionViewCell
         
-        photoCell.photoImageView.image = photos[indexPath.row]
+        photoCell.photoImageView.image = newImages[indexPath.row]
+        
 
         return photoCell
         
@@ -85,9 +109,9 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let ifffmWidth = view.frame.width - 36
+        let size = view.frame.width - 36
         
-        let width = ifffmWidth / 3
+        let width = size / 3
         
         return CGSize(width: width, height: width)
         
