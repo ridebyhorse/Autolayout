@@ -23,7 +23,16 @@ class LoginViewController: UIViewController {
     private var logInButton = UIButton()
     private let scrollView = UIScrollView()
     
-    var delegate: LoginViewControllerDelegate?
+    private let loginInspector: LoginViewControllerDelegate
+    
+    init(inspector: LoginViewControllerDelegate) {
+        self.loginInspector = inspector
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         
@@ -162,11 +171,9 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapLogInButton() {
         
-        guard let delegate = delegate else {
-            return
-        }
+        
 
-        if delegate.checkData(inputLogin: emailOrPhoneTextField.text ?? "", inputPswd: passwordTextField.text ?? "") {
+        if loginInspector.checkData(inputLogin: emailOrPhoneTextField.text ?? "", inputPswd: passwordTextField.text ?? "") {
             print("Login and password are correct")
         } else {
             print("Invalid login or password")
