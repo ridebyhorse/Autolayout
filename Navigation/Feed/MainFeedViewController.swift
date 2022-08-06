@@ -26,8 +26,6 @@ class MainFeedViewController: UIViewController, Observing {
     
     lazy var textToCheck = String()
     
-    let post = FeedPost(title: "Current post")
-    
     private let buttonModel: ButtonModel
     
     private lazy var showPostButton: CustomButton = {
@@ -142,9 +140,9 @@ class MainFeedViewController: UIViewController, Observing {
     
     private func configure() {
         
-        let model = CustomButtonModel(title: buttonModel.title)
+        let model = ButtonModel(title: buttonModel.title)
         let checkButtonModel = Model().checkWordButtonModel
-        let cbModel = CustomButtonModel(title: checkButtonModel.title)
+        let cbModel = ButtonModel(title: checkButtonModel.title)
         
         showPostButton.configure(with: model)
         checkWordButton.configure(with: cbModel)
@@ -153,7 +151,7 @@ class MainFeedViewController: UIViewController, Observing {
     private func showPost() {
         print("post button pressed")
         let feedPostVC = FeedPostViewController()
-        feedPostVC.title = self.post.title
+        feedPostVC.title = "Current Post"
         self.navigationController?.pushViewController(feedPostVC, animated: true)
     }
     
@@ -163,3 +161,5 @@ class MainFeedViewController: UIViewController, Observing {
     }
 
 }
+
+

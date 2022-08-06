@@ -37,8 +37,12 @@
 		CBA0B86A283D17920030CB1C /* MainFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0B869283D17920030CB1C /* MainFeedViewController.swift */; };
 		CBA0B86C283D17C80030CB1C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0B86B283D17C80030CB1C /* InfoViewController.swift */; };
 		CBA0B86E283D18260030CB1C /* FeedPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0B86D283D18260030CB1C /* FeedPostViewController.swift */; };
-		CBA0B870283D18500030CB1C /* FeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0B86F283D18500030CB1C /* FeedPost.swift */; };
 		CBA52F40283E4A99001703D3 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA52F3F283E4A99001703D3 /* Model.swift */; };
+		CBA70C0C289271030026D922 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA70C0B289271030026D922 /* MainCoordinator.swift */; };
+		CBA70C0E2892712C0026D922 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA70C0D2892712C0026D922 /* Coordinator.swift */; };
+		CBA70C112892C3D50026D922 /* FeedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA70C102892C3D50026D922 /* FeedFlowCoordinator.swift */; };
+		CBA70C132892C4DD0026D922 /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA70C122892C4DD0026D922 /* ProfileFlowCoordinator.swift */; };
+		CBA70C1628981A540026D922 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA70C1528981A540026D922 /* Presenter.swift */; };
 		CBC2DE53281BFC7800E546C4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2DE52281BFC7800E546C4 /* User.swift */; };
 		CBC2DE55281C025600E546C4 /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC2DE54281C025600E546C4 /* CurrentUserService.swift */; };
 		CBC33DCB28225D0200990300 /* TestUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBC33DCA28225D0200990300 /* TestUserService.swift */; };
@@ -101,8 +105,12 @@
 		CBA0B869283D17920030CB1C /* MainFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFeedViewController.swift; sourceTree = "<group>"; };
 		CBA0B86B283D17C80030CB1C /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		CBA0B86D283D18260030CB1C /* FeedPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostViewController.swift; sourceTree = "<group>"; };
-		CBA0B86F283D18500030CB1C /* FeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPost.swift; sourceTree = "<group>"; };
 		CBA52F3F283E4A99001703D3 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		CBA70C0B289271030026D922 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		CBA70C0D2892712C0026D922 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		CBA70C102892C3D50026D922 /* FeedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedFlowCoordinator.swift; sourceTree = "<group>"; };
+		CBA70C122892C4DD0026D922 /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
+		CBA70C1528981A540026D922 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		CBC2DE52281BFC7800E546C4 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CBC2DE54281C025600E546C4 /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		CBC33DCA28225D0200990300 /* TestUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestUserService.swift; sourceTree = "<group>"; };
@@ -154,15 +162,16 @@
 		060782B0250CE27700A87020 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				CBA70C1428981A3E0026D922 /* Presenters */,
+				CBA70C0A289270CE0026D922 /* Coordinators */,
 				CBA0B868283D15DA0030CB1C /* Feed */,
 				CB75048426664A8E00D39751 /* Profile */,
+				CBA70C0F2892722A0026D922 /* Post */,
 				060782B1250CE27700A87020 /* AppDelegate.swift */,
 				060782B5250CE27700A87020 /* FeedViewController.swift */,
 				060782BA250CE27A00A87020 /* Assets.xcassets */,
 				060782BC250CE27A00A87020 /* LaunchScreen.storyboard */,
 				060782BF250CE27A00A87020 /* Info.plist */,
-				060782C7250CEE5D00A87020 /* PostViewController.swift */,
-				060782C9250CEE7200A87020 /* Post.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -192,9 +201,9 @@
 				CB245C172812F128007B1596 /* PhotosTableViewCell.swift */,
 				CB5039AD2818511200E5E077 /* Photos.swift */,
 				CB8396142692230F002C1085 /* FeedTableViewCell.swift */,
-				CB0508572677D8B9007D2BAB /* LoginViewController.swift */,
 				CB9A6B7E278F4FBD007F8ADF /* ProfileHeaderView.swift */,
 				CB75048726664AFA00D39751 /* ProfileViewController.swift */,
+				CB0508572677D8B9007D2BAB /* LoginViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -211,14 +220,41 @@
 		CBA0B868283D15DA0030CB1C /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				CBA0B86F283D18500030CB1C /* FeedPost.swift */,
-				CBA0B86D283D18260030CB1C /* FeedPostViewController.swift */,
 				CBA0B86B283D17C80030CB1C /* InfoViewController.swift */,
+				CBA0B86D283D18260030CB1C /* FeedPostViewController.swift */,
 				CBA0B869283D17920030CB1C /* MainFeedViewController.swift */,
 				CBA0B8662837AE3B0030CB1C /* CustomButton.swift */,
 				CBA52F3F283E4A99001703D3 /* Model.swift */,
 			);
 			path = Feed;
+			sourceTree = "<group>";
+		};
+		CBA70C0A289270CE0026D922 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				CBA70C0B289271030026D922 /* MainCoordinator.swift */,
+				CBA70C102892C3D50026D922 /* FeedFlowCoordinator.swift */,
+				CBA70C122892C4DD0026D922 /* ProfileFlowCoordinator.swift */,
+				CBA70C0D2892712C0026D922 /* Coordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		CBA70C0F2892722A0026D922 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				060782C7250CEE5D00A87020 /* PostViewController.swift */,
+				060782C9250CEE7200A87020 /* Post.swift */,
+			);
+			path = Post;
+			sourceTree = "<group>";
+		};
+		CBA70C1428981A3E0026D922 /* Presenters */ = {
+			isa = PBXGroup;
+			children = (
+				CBA70C1528981A540026D922 /* Presenter.swift */,
+			);
+			path = Presenters;
 			sourceTree = "<group>";
 		};
 		FCC7D075C1EAFFDEBCC91BD9 /* Frameworks */ = {
@@ -421,6 +457,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CBC33DCB28225D0200990300 /* TestUserService.swift in Sources */,
+				CBA70C0C289271030026D922 /* MainCoordinator.swift in Sources */,
 				CB4B71D6283670EC00F1F810 /* Checker.swift in Sources */,
 				CB0508582677D8B9007D2BAB /* LoginViewController.swift in Sources */,
 				CB4B71C72834F0A200F1F810 /* MyLoginFactory.swift in Sources */,
@@ -429,9 +466,9 @@
 				060782B6250CE27700A87020 /* FeedViewController.swift in Sources */,
 				060782B2250CE27700A87020 /* AppDelegate.swift in Sources */,
 				CB245C182812F128007B1596 /* PhotosTableViewCell.swift in Sources */,
-				CBA0B870283D18500030CB1C /* FeedPost.swift in Sources */,
 				CBC2DE53281BFC7800E546C4 /* User.swift in Sources */,
 				CB4B71C528327D9B00F1F810 /* LoginInspector.swift in Sources */,
+				CBA70C132892C4DD0026D922 /* ProfileFlowCoordinator.swift in Sources */,
 				CBA0B86C283D17C80030CB1C /* InfoViewController.swift in Sources */,
 				CBA0B86E283D18260030CB1C /* FeedPostViewController.swift in Sources */,
 				CBA52F40283E4A99001703D3 /* Model.swift in Sources */,
@@ -440,8 +477,11 @@
 				CB9A6B7F278F4FBD007F8ADF /* ProfileHeaderView.swift in Sources */,
 				CBC2DE55281C025600E546C4 /* CurrentUserService.swift in Sources */,
 				CB5039AC2818457F00E5E077 /* PhotosViewController.swift in Sources */,
+				CBA70C1628981A540026D922 /* Presenter.swift in Sources */,
 				CB5039AE2818511200E5E077 /* Photos.swift in Sources */,
+				CBA70C0E2892712C0026D922 /* Coordinator.swift in Sources */,
 				CB75048826664AFA00D39751 /* ProfileViewController.swift in Sources */,
+				CBA70C112892C3D50026D922 /* FeedFlowCoordinator.swift in Sources */,
 				060782C8250CEE5D00A87020 /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
