@@ -51,7 +51,7 @@ class InfoViewController: UIViewController {
     }
     
     private func configure() {
-        let model = CustomButtonModel(title: buttonModel.title)
+        let model = ButtonModel(title: buttonModel.title)
         showAlertButton.configure(with: model)
     }
     

@@ -16,29 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow()
         
-        let factory = MyLoginFactory()
-        
-        let model = Model()
-        let profileController = LoginViewController(inspector: factory.makeLoginInspector())
-        let feedController = MainFeedViewController(model: model)
-        
-        let feedNavigationController = UINavigationController(rootViewController: feedController)
-        feedNavigationController.title = "Feed"
-        feedNavigationController.tabBarItem.image = UIImage(systemName: "lineweight")
-        feedNavigationController.navigationBar.topItem?.title = "Feed"
-
-        
-        let profileNavigationController = UINavigationController(rootViewController: profileController)
-        profileNavigationController.title = "Profile"
-        profileNavigationController.tabBarItem.image = UIImage(systemName: "person.fill")
-
-        
-        let tabbarController = UITabBarController()
-        tabbarController.view.backgroundColor = .white
-        tabbarController.viewControllers = [feedNavigationController, profileNavigationController]
-        
-        window?.rootViewController = tabbarController
+        let coordinator = MainCoordinator()
+        window?.rootViewController = coordinator.tabbar
         window?.makeKeyAndVisible()
+        
+        coordinator.start()
         
         return true
     }

@@ -8,11 +8,21 @@
 
 import UIKit
 
+protocol ViewInput: AnyObject {
+    func configureButton(title: String)
+}
+
+protocol ViewOutput {
+    var onSelect: ((String) -> Void)? { get set }
+}
+
 protocol LoginViewControllerDelegate: AnyObject {
     func checkData(inputLogin: String, inputPswd: String) -> Bool
 }
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, ViewInput {
+    
+    private var output: ViewOutput
     
     private var loginView = UIView()
     private var logo = UIImageView(image: UIImage(named: "logo"))
@@ -25,13 +35,18 @@ class LoginViewController: UIViewController {
     
     private let loginInspector: LoginViewControllerDelegate
     
-    init(inspector: LoginViewControllerDelegate) {
+    init(inspector: LoginViewControllerDelegate, output: ViewOutput) {
         self.loginInspector = inspector
+        self.output = output
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configureButton(title: String) {
+        logInButton.setTitle(title, for: .normal)
     }
     
     override func viewDidLoad() {
@@ -120,7 +135,7 @@ class LoginViewController: UIViewController {
         passwordTextField.placeholder = "Password"
         passwordTextField.tintColor = UIColor(named: "vkColor")
         passwordTextField.autocapitalizationType = .none
-        logInButton.setTitle("Log In", for: .normal)
+        
         logInButton.titleLabel?.textColor = .white
         logInButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         logInButton.layer.cornerRadius = 10
@@ -171,7 +186,7 @@ class LoginViewController: UIViewController {
     
     @objc private func didTapLogInButton() {
         
-        
+        output.onSelect?("with login button tapped")
 
         if loginInspector.checkData(inputLogin: emailOrPhoneTextField.text ?? "", inputPswd: passwordTextField.text ?? "") {
             print("Login and password are correct")
@@ -193,7 +208,4 @@ class LoginViewController: UIViewController {
     }
     
 }
-
-
-
 

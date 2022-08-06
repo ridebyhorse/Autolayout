@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct CustomButtonModel {
-    let title: String
-}
-
 class CustomButton: UIButton {
     
     var textCheckerDelegate: CustomButtonDelegate?
@@ -38,7 +34,7 @@ class CustomButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: CustomButtonModel) {
+    func configure(with model: ButtonModel) {
         self.setTitle(model.title, for: .normal)
     }
     
