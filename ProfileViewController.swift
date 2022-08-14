@@ -8,8 +8,13 @@
 
 import UIKit
 import StorageServices
+import iOSIntPackage
 
 class ProfileViewController: UIViewController {
+    
+    private let imageProcessor = ImageProcessor()
+  
+    private var filteredImages: [UIImage] = []
 
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
@@ -72,7 +77,140 @@ class ProfileViewController: UIViewController {
         tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
         
 //        applyFilters()
-       
+        
+        
+/*
+Filtering images from "photos" array with "colorInvert" filter and background quality of service finished in 0.0012750625610351562 seconds.
+ */
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .colorInvert, qos: .background) { (result) -> () in
+//
+//            let startTime = CFAbsoluteTimeGetCurrent()
+//
+//            for i in 0..<result.count {
+//                if let res = result[i]{
+//                    self.filteredImages.append(UIImage(cgImage: res))
+//                }
+//            }
+//            let endTime = CFAbsoluteTimeGetCurrent()
+//
+//            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+//        }
+        
+        
+        
+/*
+Filtering images from "photos" array with "colorInvert" filter and utility quality of service finished in 0.0001970529556274414 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .colorInvert, qos: .utility) { (result) -> () in
+//
+//            let startTime = CFAbsoluteTimeGetCurrent()
+//
+//            for i in 0..<result.count {
+//                if let res = result[i]{
+//                    self.filteredImages.append(UIImage(cgImage: res))
+//                }
+//            }
+//            let endTime = CFAbsoluteTimeGetCurrent()
+//
+//            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "chrome" filter and default quality of service finished in 0.00020205974578857422 seconds.
+*/
+
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .chrome, qos: .default) { (result) -> () in
+//
+//            let startTime = CFAbsoluteTimeGetCurrent()
+//
+//            for i in 0..<result.count {
+//                if let res = result[i]{
+//                    self.filteredImages.append(UIImage(cgImage: res))
+//                }
+//            }
+//            let endTime = CFAbsoluteTimeGetCurrent()
+//
+//            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "bloom" filter and default quality of service finished in 0.00022101402282714844 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .bloom(intensity: 50), qos: .default) { (result) -> () in
+//
+//            let startTime = CFAbsoluteTimeGetCurrent()
+//
+//            for i in 0..<result.count {
+//                if let res = result[i]{
+//                    self.filteredImages.append(UIImage(cgImage: res))
+//                }
+//            }
+//            let endTime = CFAbsoluteTimeGetCurrent()
+//
+//            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "sepia" filter and userInitiated quality of service finished in 0.00029206275939941406 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .sepia(intensity: 3), qos: .userInitiated) { (result) -> () in
+//
+//            let startTime = CFAbsoluteTimeGetCurrent()
+//
+//            for i in 0..<result.count {
+//                if let res = result[i]{
+//                    self.filteredImages.append(UIImage(cgImage: res))
+//                }
+//            }
+//            let endTime = CFAbsoluteTimeGetCurrent()
+//
+//            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "noir" filter and userInitiated quality of service finished in 0.00055694580078125 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .noir, qos: .userInitiated) { (result) -> () in
+//
+//            let startTime = CFAbsoluteTimeGetCurrent()
+//
+//            for i in 0..<result.count {
+//                if let res = result[i]{
+//                    self.filteredImages.append(UIImage(cgImage: res))
+//                }
+//            }
+//            let endTime = CFAbsoluteTimeGetCurrent()
+//
+//            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "crystallize" filter and userInteractive quality of service finished in 0.0001709461212158203 seconds.
+*/
+        
+        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .crystallize(radius: 20), qos: .userInteractive) { (result) -> () in
+            
+            let startTime = CFAbsoluteTimeGetCurrent()
+            
+            for i in 0..<result.count {
+                if let res = result[i]{
+                    self.filteredImages.append(UIImage(cgImage: res))
+                }
+            }
+            let endTime = CFAbsoluteTimeGetCurrent()
+            
+            print("Filtered \(self.filteredImages.count) images with \(endTime - startTime) s.")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +237,7 @@ extension ProfileViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             let photosVC = PhotosViewController()
             navigationController?.pushViewController(photosVC, animated: true)
+            photosVC.sendImages(input: filteredImages)
             photosVC.navigationItem.title = "Photo Gallery"
         } else {
             return

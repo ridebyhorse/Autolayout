@@ -53,7 +53,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
     func setup(with photo: UIImage) {
         
         photoImageView.image = photos.first
-        
+
     }
     
 }
