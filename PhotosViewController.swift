@@ -9,7 +9,11 @@
 import UIKit
 import iOSIntPackage
 
+
+
 class PhotosViewController: UIViewController, ImageLibrarySubscriber {
+
+    private var filteredImages: [UIImage] = []
     
     let collectionView: UICollectionView = {
         let viewLayout = UICollectionViewFlowLayout()
@@ -24,6 +28,8 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
     }()
     
     let facade = ImagePublisherFacade()
+    
+ 
 
     
     private(set) var observations: [NSKeyValueObservation] = []
@@ -35,6 +41,7 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
         collectionView.reloadData()
         
     }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,9 +52,14 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
         
         setupViews()
         
-        facade.addImagesWithTimer(time: 1.5, repeat: 20, userImages: photos)
+        facade.addImagesWithTimer(time: 1.5, repeat: 20, userImages: filteredImages)
         
     }
+    
+    func sendImages(input: [UIImage]) -> Void {
+        self.filteredImages = input
+    }
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

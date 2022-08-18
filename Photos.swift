@@ -9,7 +9,7 @@
 import UIKit
 
 var photos: [UIImage] = [
-    
+
     .init(named: "0")!,
     .init(named: "1")!,
     .init(named: "2")!,

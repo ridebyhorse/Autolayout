@@ -8,8 +8,13 @@
 
 import UIKit
 import StorageServices
+import iOSIntPackage
 
 class ProfileViewController: UIViewController {
+    
+    private let imageProcessor = ImageProcessor()
+  
+    private var filteredImages: [UIImage] = []
 
     private let tableView = UITableView(frame: .zero, style: .grouped)
     
@@ -39,6 +44,8 @@ class ProfileViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    
     
     override func viewDidLoad() {
         
@@ -72,13 +79,96 @@ class ProfileViewController: UIViewController {
         tableView.register(ProfileHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: ProfileHeaderView.self))
         
 //        applyFilters()
-       
+        let startTime = Date()
+        
+/*
+Filtering images from "photos" array with "colorInvert" filter and background quality of service finished in 3.8 seconds.
+ */
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .colorInvert, qos: .background) { result in
+//
+//            self.getFilteredImages(input: result, startTime: startTime)
+//
+//        }
+        
+/*
+Filtering images from "photos" array with "colorInvert" filter and utility quality of service finished in 1.7 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .colorInvert, qos: .utility) { result in
+//
+//            self.getFilteredImages(input: result, startTime: startTime)
+//
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "chrome" filter and default quality of service finished in 1.5 seconds.
+*/
+
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .chrome, qos: .default) { result in
+//
+//            self.getFilteredImages(input: result, startTime: startTime)
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "bloom" filter and default quality of service finished in 1.4 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .bloom(intensity: 50), qos: .default) { result in
+//
+//            self.getFilteredImages(input: result, startTime: startTime)
+//        }
+//
+        
+/*
+Filtering images from "photos" array with "sepia" filter and userInitiated quality of service finished in 1.3 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .sepia(intensity: 3), qos: .userInitiated) { result in
+//
+//            self.getFilteredImages(input: result, startTime: startTime)
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "noir" filter and userInitiated quality of service finished in 1.5 seconds.
+*/
+        
+//        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .noir, qos: .userInitiated) { result in
+//
+//            self.getFilteredImages(input: result, startTime: startTime)
+//        }
+        
+        
+/*
+Filtering images from "photos" array with "crystallize" filter and userInteractive quality of service finished in 1.3 seconds.
+*/
+        
+        imageProcessor.processImagesOnThread(sourceImages: photos, filter: .crystallize(radius: 20), qos: .userInteractive) { (result) -> () in
+
+            self.getFilteredImages(input: result, startTime: startTime)
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         self.navigationController?.isNavigationBarHidden = true
+    }
+    
+    private func getFilteredImages(input: [CGImage?], startTime: Date) {
+        for i in 0..<input.count {
+            if let res = input[i]{
+            self.filteredImages.append(UIImage(cgImage: res))
+            }
+        }
+    let endTime = Date()
+    let timeElapsed = endTime.timeIntervalSince(startTime)
+
+        print("Filtered \(self.filteredImages.count) images with \(timeElapsed) s.")
     }
     
 }
@@ -99,6 +189,7 @@ extension ProfileViewController: UITableViewDelegate {
         if indexPath.section == 0 {
             let photosVC = PhotosViewController()
             navigationController?.pushViewController(photosVC, animated: true)
+            photosVC.sendImages(input: filteredImages)
             photosVC.navigationItem.title = "Photo Gallery"
         } else {
             return
