@@ -52,15 +52,7 @@ class PhotosViewController: UIViewController, ImageLibrarySubscriber {
         
         setupViews()
         
-        
-            
-//            self.facade.addImagesWithTimer(time: 1.5, repeat: 20, userImages: filteredImages)
-        
-        
-//    completion: [CGImage(photos)])
-        
         facade.addImagesWithTimer(time: 1.5, repeat: 20, userImages: filteredImages)
-        
         
     }
     
